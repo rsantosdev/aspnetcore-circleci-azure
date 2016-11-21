@@ -37,4 +37,5 @@ deployment:
     branch: master
     owner: rsantosdev
     commands:
-      - sh script/publish
+      - sh script/publish-azure
+      - sh script/publish-dockerhub

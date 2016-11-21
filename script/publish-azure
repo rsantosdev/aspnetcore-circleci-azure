@@ -9,7 +9,7 @@ cd "$(dirname "$0")/.."
 
 # ------
 
-echo "Publishing..."
+echo "Publishing Azure..."
 
 curl -H "If-Match: *" --user $AZURE_PUBLISH_USERNAME:$AZURE_PUBLISH_PASSWORD $AZURE_PUBLISH_URL/zip/site/wwwroot --upload-file $CIRCLE_ARTIFACTS/netcoreapp1.1/publish.zip
 
