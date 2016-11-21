@@ -14,7 +14,6 @@ echo "Publishing Docker Hub..."
 docker build -t aspnetcore-circleci-azure .
 docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
 docker tag aspnetcore-circleci-azure rsantosdev/aspnetcore-circleci-azure:latest
-docker tag aspnetcore-circleci-azure rsantosdev/aspnetcore-circleci-azure:$(date +%Y%m%dT%H%M)-${CIRCLE_SHA1:0:7}
 docker push rsantosdev/aspnetcore-circleci-azure
 
 echo "Done publishing!"
