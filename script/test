@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# script/builds - builds the release
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+# ------
+
+sh script/restore
+
+# ------
+
+echo "Testing..."
+export ASPNETCORE_ENVIRONMENT=test
+export ConnectionStrings__DefaultConnection="Server=localhost;Database=AspnetCoreCircleCiAzure_Test;User Id=sa;Password=Xpto@1502;MultipleActiveResultSets=true"
+cd test/AspnetCoreCircleCiAzure.IntegrationTests/
+dotnet test
+
+echo "Done testing!"
+
+# ------

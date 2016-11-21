@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{37B59A29-4573-4B9E-A021-D7E25F51BDB7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{23B0C0D4-9A77-4031-83C4-42147E69DAEA}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApi", "src\WebApi\WebApi.xproj", "{357815B0-24FE-4FC3-97B6-11E3C85DDD32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1E27F923-56EB-45EC-A200-2D4C7D8DC806}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "WebApi.IntegrationTests", "test\WebApi.IntegrationTests\WebApi.IntegrationTests.xproj", "{F8A57CD7-9987-407D-AC83-5ADE7F38A8C9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{357815B0-24FE-4FC3-97B6-11E3C85DDD32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{357815B0-24FE-4FC3-97B6-11E3C85DDD32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{357815B0-24FE-4FC3-97B6-11E3C85DDD32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{357815B0-24FE-4FC3-97B6-11E3C85DDD32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8A57CD7-9987-407D-AC83-5ADE7F38A8C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8A57CD7-9987-407D-AC83-5ADE7F38A8C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8A57CD7-9987-407D-AC83-5ADE7F38A8C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8A57CD7-9987-407D-AC83-5ADE7F38A8C9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{357815B0-24FE-4FC3-97B6-11E3C85DDD32} = {37B59A29-4573-4B9E-A021-D7E25F51BDB7}
+		{F8A57CD7-9987-407D-AC83-5ADE7F38A8C9} = {1E27F923-56EB-45EC-A200-2D4C7D8DC806}
+	EndGlobalSection
+EndGlobal

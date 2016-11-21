@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# script/builds - builds the release
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+# ------
+
+echo "Restoring..."
+
+dotnet restore
+
+echo "Done restoring!"
+
+# ------

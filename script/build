@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# script/builds - builds the release
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+# ------
+
+echo "Building..."
+
+cd src/AspnetCoreCircleCiAzure/
+dotnet publish --configuration Release
+
+echo "Done building!"
+
+# ------

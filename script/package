@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# script/builds - builds the release
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+# ------
+
+echo "Packaging..."
+
+# Zip the content
+cd src/AspnetCoreCircleCiAzure/bin/Release/netcoreapp1.1/publish
+zip -r ../publish.zip ./*
+
+echo "Done packaging!"
+
+# ------

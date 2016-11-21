@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# script/builds - builds the release
+
+# exit on sub-module failure
+set -e
+
+cd "$(dirname "$0")/.."
+
+# ------
+
+echo "Publishing..."
+
+curl -H "If-Match: *" --user $AZURE_PUBLISH_USERNAME:$AZURE_PUBLISH_PASSWORD $AZURE_PUBLISH_URL/zip/site/wwwroot --upload-file $CIRCLE_ARTIFACTS/netcoreapp1.1/publish.zip
+
+echo "Done publishing!"
+
+# ------
