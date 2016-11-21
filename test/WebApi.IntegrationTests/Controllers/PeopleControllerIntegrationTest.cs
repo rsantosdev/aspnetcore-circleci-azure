@@ -2,6 +2,8 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Net;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using WebApi.IntegrationTests.Configuration;
 using WebApi.Models;
@@ -50,6 +52,38 @@ namespace WebApi.IntegrationTests.Controllers
             var dataString = await response.Content.ReadAsStringAsync();
             var data = JsonConvert.DeserializeObject<Person>(dataString);
 
+            Assert.Equal(data.Name, person.Name);
+        }
+
+        [Fact]
+        public async Task PostWithInvalidModelShouldReturnBadRequest()
+        {
+            var body = new { value = "my-value" };
+            var content = new StringContent(JsonConvert.SerializeObject(body), Encoding.UTF8, "application/json");
+            var response = await Client.PostAsync(BaseUrl, content);
+
+            Assert.Equal(response.StatusCode, HttpStatusCode.BadRequest);
+        }
+
+        [Fact]
+        public async Task PostWithValidModelShouldReturnCreated()
+        {
+            var person = new Person
+            {
+                Name = "Rafael dos Santos",
+                Phone = "+5527900000000",
+                BirthDay = new DateTime(1988, 09, 08),
+                Salary = 1000
+            };
+
+            var content = new StringContent(JsonConvert.SerializeObject(person), Encoding.UTF8, "application/json");
+            var response = await Client.PostAsync(BaseUrl, content);
+            response.EnsureSuccessStatusCode();
+
+            var data = JsonConvert.DeserializeObject<Person>(await response.Content.ReadAsStringAsync());
+
+            Assert.Equal(response.StatusCode, HttpStatusCode.Created);
+            Assert.NotSame(data.Id, 0);
             Assert.Equal(data.Name, person.Name);
         }
 

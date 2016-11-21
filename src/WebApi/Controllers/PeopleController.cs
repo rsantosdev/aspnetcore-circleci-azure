@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Net;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Models;
@@ -33,6 +34,20 @@ namespace WebApi.Controllers
             }
 
             return Json(person);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreatePerson([FromBody]Person person)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _context.People.Add(person);
+            await _context.SaveChangesAsync();
+
+            return StatusCode((int)HttpStatusCode.Created, person);
         }
     }
 }
