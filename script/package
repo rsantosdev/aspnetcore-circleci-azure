@@ -12,7 +12,7 @@ cd "$(dirname "$0")/.."
 echo "Packaging..."
 
 # Zip the content
-cd src/AspnetCoreCircleCiAzure/bin/Release/netcoreapp1.1/publish
+cd src/WebApi/bin/Release/netcoreapp1.1/publish
 zip -r ../publish.zip ./*
 
 echo "Done packaging!"

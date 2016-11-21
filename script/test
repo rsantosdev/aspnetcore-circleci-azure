@@ -16,7 +16,7 @@ sh script/restore
 echo "Testing..."
 export ASPNETCORE_ENVIRONMENT=test
 export ConnectionStrings__DefaultConnection="Server=localhost;Database=AspnetCoreCircleCiAzure_Test;User Id=sa;Password=Xpto@1502;MultipleActiveResultSets=true"
-cd test/AspnetCoreCircleCiAzure.IntegrationTests/
+cd test/WebApi.IntegrationTests/
 dotnet test
 
 echo "Done testing!"

@@ -11,7 +11,7 @@ cd "$(dirname "$0")/.."
 
 echo "Building..."
 
-cd src/AspnetCoreCircleCiAzure/
+cd src/WebApi/
 dotnet publish --configuration Release
 
 echo "Done building!"

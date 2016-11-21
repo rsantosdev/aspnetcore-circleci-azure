@@ -30,7 +30,7 @@ test:
   post:
     - sh script/build
     - sh script/package
-    - cp -R src/AspnetCoreCircleCiAzure/bin/Release/netcoreapp1.1/ $CIRCLE_ARTIFACTS/
+    - cp -R src/WebApi/bin/Release/netcoreapp1.1/ $CIRCLE_ARTIFACTS/
 
 deployment:
   master:
