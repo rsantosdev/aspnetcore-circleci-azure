@@ -12,6 +12,7 @@ cd "$(dirname "$0")/.."
 echo "Building..."
 
 cd src/WebApi/
+rm -rf bin/Release
 dotnet publish --configuration Release
 
 echo "Done building!"
