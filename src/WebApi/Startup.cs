@@ -34,28 +34,10 @@ namespace WebApi
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory,
-            MyDbContext dbContext)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-
-            // Make sure we have database and migrations applied
-            if (env.EnvironmentName != "test")
-            {
-                using (dbContext)
-                {
-                    try
-                    {
-                        dbContext.Database.EnsureCreated();
-                        dbContext.Database.Migrate();
-                    }
-                    catch (Exception)
-                    {
-                        //TODO: Apply better logging
-                    }
-                }
-            }
 
             app.UseMvc();
         }

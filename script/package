@@ -12,6 +12,7 @@ cd "$(dirname "$0")/.."
 echo "Packaging..."
 
 # Zip the content
+cp web.azure.config src/WebApi/bin/Release/netcoreapp1.1/publish/web.config
 cd src/WebApi/bin/Release/netcoreapp1.1/publish
 zip -r ../publish.zip ./*
 
