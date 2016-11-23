@@ -35,7 +35,7 @@ test:
 deployment:
   master:
     branch: master
-    owner: rsantosdev
+    owner: rodrigokono
     commands:
       - sh script/publish-azure
       - sh script/publish-dockerhub
